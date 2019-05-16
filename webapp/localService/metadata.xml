@@ -3,16 +3,26 @@
 	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
 	<edmx:DataServices m:DataServiceVersion="2.0">
 		<Schema Namespace="CA_SHIER_COST_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-			<EntityType Name="CDS_SHCQRY" sap:content-version="1">
-				<Key><PropertyRef Name="Costdocumentid"/></Key><Property Name="Costdocumentid" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Cost document ID"
-					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Costdocumentdate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Cost date"
-					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Externalresourceid" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="External resource ID"
-					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Hostingpartnerid" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Hosting partner ID"
-					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Costitemamount" Type="Edm.Decimal" Nullable="false" Precision="14" Scale="3" sap:unicode="false" sap:unit="Currency"
-					sap:label="Cost item amount" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Currency" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Currency" sap:creatable="false"
-					sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/></EntityType>
+			<EntityType Name="CDS_SHCQRY" sap:semantics="aggregate" sap:content-version="1">
+				<Key><PropertyRef Name="AnalyticalID"/></Key><Property Name="Costitemdate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:aggregation-role="dimension" sap:unicode="false"
+					sap:label="Cost date" sap:creatable="false" sap:updatable="false"/><Property Name="Externalresourceid" Type="Edm.String" Nullable="false" MaxLength="32" sap:aggregation-role="dimension" sap:unicode="false"
+					sap:label="Resource" sap:creatable="false" sap:updatable="false"/><Property Name="Hostingpartnerid" Type="Edm.String" Nullable="false" MaxLength="50" sap:aggregation-role="dimension" sap:unicode="false"
+					sap:label="Hosting partner" sap:creatable="false" sap:updatable="false"/><Property Name="Costitemamount" Type="Edm.Decimal" Nullable="false" Precision="14" Scale="3" sap:aggregation-role="measure"
+					sap:unicode="false" sap:unit="Currency" sap:label="Cost" sap:creatable="false" sap:updatable="false"/><Property Name="Currency" Type="Edm.String" Nullable="false" MaxLength="5" sap:aggregation-role="dimension" sap:unicode="false"
+					sap:label="Currency" sap:creatable="false" sap:updatable="false" sap:semantics="currency-code"/><Property Name="AnalyticalID" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Analytical row ID"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Solutionareaid" Type="Edm.String" Nullable="false" MaxLength="32" sap:aggregation-role="dimension" sap:unicode="false"
+					sap:label="Solutionarea" sap:creatable="false" sap:updatable="false"/><Property Name="Solutionareacomponentid" Type="Edm.String" Nullable="false" MaxLength="100" sap:aggregation-role="dimension"
+					sap:unicode="false" sap:label="Solutionarea component" sap:creatable="false" sap:updatable="false"/><Property Name="Applicationid" Type="Edm.String" Nullable="false" MaxLength="32" sap:aggregation-role="dimension" sap:unicode="false"
+					sap:label="Application" sap:creatable="false" sap:updatable="false"/><Property Name="Applicationcomponentid" Type="Edm.String" Nullable="false" MaxLength="32" sap:aggregation-role="dimension"
+					sap:unicode="false" sap:label="Application component" sap:creatable="false" sap:updatable="false"/><Property Name="Solutionareatext" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Solution area text"
+					sap:creatable="false" sap:updatable="false"/></EntityType>
+			<EntityType Name="Solutionarea" sap:content-version="1">
+				<Key><PropertyRef Name="SolutionareaID"/></Key><Property Name="SolutionareaID" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Solutionarea ID" sap:creatable="false"
+					sap:updatable="false"/><Property Name="SolutionareaText" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Solution area text"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
 			<EntityContainer Name="CA_SHIER_COST_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="CDS_SHCQRYSet" EntityType="CA_SHIER_COST_SRV.CDS_SHCQRY" sap:creatable="false" sap:updatable="false" sap:deletable="false"
-				sap:pageable="false" sap:content-version="1"/></EntityContainer><atom:link rel="self"
+				sap:pageable="false" sap:content-version="1"/><EntitySet Name="SolutionareaSet" EntityType="CA_SHIER_COST_SRV.Solutionarea" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/></EntityContainer><atom:link rel="self"
 				href="https://webidecp-abebf12b3.dispatcher.hana.ondemand.com/destinations/smdev100/sap/opu/odata/pnp/CA_SHIER_COST_SRV/$metadata"
 				xmlns:atom="http://www.w3.org/2005/Atom"/><atom:link rel="latest-version"
 				href="https://webidecp-abebf12b3.dispatcher.hana.ondemand.com/destinations/smdev100/sap/opu/odata/pnp/CA_SHIER_COST_SRV/$metadata"
