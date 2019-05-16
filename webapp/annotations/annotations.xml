@@ -67,7 +67,7 @@
 					<Collection>
 						<PropertyPath>Hostingpartnerid</PropertyPath>
 						<PropertyPath>Externalresourceid</PropertyPath>
-						<PropertyPath>Solutionareaid</PropertyPath>
+						<PropertyPath>Solutionarea</PropertyPath>
 					</Collection>
 				</Annotation>
 				<Annotation Term="UI.Chart" Qualifier="ChartDefault">
@@ -134,16 +134,16 @@
 				</Annotation>
 				<Annotation Term="UI.Chart" Qualifier="ChartCostBySolutionarea">
 					<Record Type="UI.ChartDefinitionType">
-						<PropertyValue Property="ChartType" EnumMember="UI.ChartType/Line"/>
+						<PropertyValue Property="ChartType" EnumMember="UI.ChartType/Donut"/>
 						<PropertyValue Property="Dimensions">
 							<Collection>
-								<PropertyPath>Solutionareaid</PropertyPath>
+								<PropertyPath>Solutionarea</PropertyPath>
 							</Collection>
 						</PropertyValue>
 						<PropertyValue Property="DimensionAttributes">
 							<Collection>
 								<Record Type="UI.ChartDimensionAttributeType">
-									<PropertyValue Property="Dimension" PropertyPath="Solutionareaid"/>
+									<PropertyValue Property="Dimension" PropertyPath="Solutionarea"/>
 									<PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
 								</Record>
 							</Collection>
@@ -263,8 +263,7 @@
 					</Record>
 				</Annotation>
 			</Annotations>
-			<Annotations Target="CA_SHIER_COST_SRV.CDS_SHCQRY/Solutionareaid">
-				<Annotation Term="Common.Text" Path="Solutionareatext"/>
+			<Annotations Target="CA_SHIER_COST_SRV.CDS_SHCQRY/Solutionarea">
 				<Annotation Term="Common.ValueList" Qualifier="forVisualFilter">
 					<Record Type="Common.ValueListType">
 						<PropertyValue Property="CollectionPath" String="CDS_SHCQRYSet"/>
@@ -273,15 +272,12 @@
 				</Annotation>
 				<Annotation Term="Common.ValueList">
 					<Record Type="Common.ValueListType">
-						<PropertyValue Property="CollectionPath" String="SolutionareaSet"/>
+						<PropertyValue Property="CollectionPath" String="SolutionareaValueList"/>
 						<PropertyValue Property="Parameters">
 							<Collection>
-								<Record Type="Common.ValueListParameterDisplayOnly">
-									<PropertyValue Property="ValueListProperty" String="SolutionareaText"/>
-								</Record>
 								<Record Type="Common.ValueListParameterOut">
-									<PropertyValue Property="LocalDataProperty" PropertyPath="Solutionareaid"/>
-									<PropertyValue Property="ValueListProperty" String="SolutionareaID"/>
+									<PropertyValue Property="LocalDataProperty" PropertyPath="Solutionarea"/>
+									<PropertyValue Property="ValueListProperty" String="Text"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -292,6 +288,9 @@
 				<Annotation Term="UI.Hidden" Bool="true"/>
 			</Annotations>
 			<Annotations Target="CA_SHIER_COST_SRV.Solutionarea/SolutionareaID">
+				<Annotation Term="UI.Hidden" Bool="true"/>
+			</Annotations>
+			<Annotations Target="CA_SHIER_COST_SRV.SolutionareaValue/Solutionarea">
 				<Annotation Term="UI.Hidden" Bool="true"/>
 			</Annotations>
 		</Schema>
