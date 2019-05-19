@@ -133,7 +133,7 @@
 						"multiSelect": false,
 						"qualifier": "Default",
 						"autoHide": true,
-						"defaultFilterMode": "visual", 
+						"defaultFilterMode": "visual",
 						"defaultContentView": "chart",
 						"showGoButtonOnFilterBar": true,
 						"condensedTableLayout": true,
@@ -153,5 +153,9 @@
 	},
 	"sap.platform.hcp": {
 		"uri": ""
+	},
+	"sap.platform.abap": {
+		"uri": "/sap/bc/ui5_ui5/pnp/itservicescost/webapp",
+		"_version": "1.1.0"
 	}
 }

@@ -135,7 +135,7 @@
 				</Annotation>
 				<Annotation Term="UI.Chart" Qualifier="ChartCostBySolutionarea">
 					<Record Type="UI.ChartDefinitionType">
-						<PropertyValue Property="ChartType" EnumMember="UI.ChartType/Column"/>
+						<PropertyValue Property="ChartType" EnumMember="UI.ChartType/Bar"/>
 						<PropertyValue Property="Dimensions">
 							<Collection>
 								<PropertyPath>Solutionarea</PropertyPath>
@@ -197,7 +197,7 @@
 				</Annotation>
 				<Annotation Term="UI.Chart" Qualifier="ChartCostByResource">
 					<Record Type="UI.ChartDefinitionType">
-						<PropertyValue Property="ChartType" EnumMember="UI.ChartType/Column"/>
+						<PropertyValue Property="ChartType" EnumMember="UI.ChartType/Bar"/>
 						<PropertyValue Property="Dimensions">
 							<Collection>
 								<PropertyPath>Externalresourceid</PropertyPath>
@@ -228,7 +228,7 @@
 				</Annotation>
 				<Annotation Term="UI.Chart" Qualifier="ChartCostBySolutionarchitect">
 					<Record Type="UI.ChartDefinitionType">
-						<PropertyValue Property="ChartType" EnumMember="UI.ChartType/Column"/>
+						<PropertyValue Property="ChartType" EnumMember="UI.ChartType/Bar"/>
 						<PropertyValue Property="Dimensions">
 							<Collection>
 								<PropertyPath>Solutionareaarchitect</PropertyPath>
