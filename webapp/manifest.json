@@ -129,11 +129,12 @@
 					"name": "sap.suite.ui.generic.template.AnalyticalListPage",
 					"list": true,
 					"settings": {
-						"tableType": "Responsive",
+						"tableType": "AnalyticalTable",
 						"multiSelect": false,
 						"qualifier": "Default",
 						"autoHide": true,
 						"defaultFilterMode": "visual", 
+						"defaultContentView": "chart",
 						"showGoButtonOnFilterBar": true,
 						"condensedTableLayout": true,
 						"keyPerformanceIndicators": {}

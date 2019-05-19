@@ -73,16 +73,16 @@
 				</Annotation>
 				<Annotation Term="UI.Chart" Qualifier="ChartDefault">
 					<Record Type="UI.ChartDefinitionType">
-						<PropertyValue Property="ChartType" EnumMember="UI.ChartType/Donut"/>
+						<PropertyValue Property="ChartType" EnumMember="UI.ChartType/Column"/>
 						<PropertyValue Property="Dimensions">
 							<Collection>
-								<PropertyPath>Externalresourceid</PropertyPath>
+								<PropertyPath>Solutionarea</PropertyPath>
 							</Collection>
 						</PropertyValue>
 						<PropertyValue Property="DimensionAttributes">
 							<Collection>
 								<Record Type="UI.ChartDimensionAttributeType">
-									<PropertyValue Property="Dimension" PropertyPath="Externalresourceid"/>
+									<PropertyValue Property="Dimension" PropertyPath="Solutionarea"/>
 									<PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
 								</Record>
 							</Collection>
