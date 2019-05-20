@@ -47,13 +47,16 @@
 				<Annotation Term="UI.LineItem">
 					<Collection>
 						<Record Type="UI.DataField">
-							<PropertyValue Property="Value" Path="Hostingpartnerid"/>
+							<PropertyValue Property="Value" Path="Hostingpartner"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Solutionarea"/>
 						</Record>
 						<Record Type="UI.DataField">
 							<PropertyValue Property="Value" Path="Externalresourceid"/>
 						</Record>
 						<Record Type="UI.DataField">
-							<PropertyValue Property="Value" Path="Costperiod"/>
+							<PropertyValue Property="Value" Path="Costitemtype"/>
 						</Record>
 						<Record Type="UI.DataField">
 							<PropertyValue Property="Value" Path="Analysiscostamount"/>
@@ -66,7 +69,7 @@
 				<Annotation Term="UI.SelectionFields">
 					<Collection>
 						<PropertyPath>Costperiod</PropertyPath>
-						<PropertyPath>Hostingpartnerid</PropertyPath>
+						<PropertyPath>Hostingpartner</PropertyPath>
 						<PropertyPath>Solutionarea</PropertyPath>
 						<PropertyPath>Solutionareaarchitect</PropertyPath>
 					</Collection>
@@ -107,13 +110,13 @@
 						<PropertyValue Property="ChartType" EnumMember="UI.ChartType/Donut"/>
 						<PropertyValue Property="Dimensions">
 							<Collection>
-								<PropertyPath>Hostingpartnerid</PropertyPath>
+								<PropertyPath>Hostingpartner</PropertyPath>
 							</Collection>
 						</PropertyValue>
 						<PropertyValue Property="DimensionAttributes">
 							<Collection>
 								<Record Type="UI.ChartDimensionAttributeType">
-									<PropertyValue Property="Dimension" PropertyPath="Hostingpartnerid"/>
+									<PropertyValue Property="Dimension" PropertyPath="Hostingpartner"/>
 									<PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
 								</Record>
 							</Collection>
@@ -176,7 +179,7 @@
 							<Collection>
 								<Record Type="UI.ChartDimensionAttributeType">
 									<PropertyValue Property="Dimension" PropertyPath="Costperiod"/>
-									<PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+									<PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Series"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -330,8 +333,8 @@
 					</Record>
 				</Annotation>
 			</Annotations>
-			<Annotations Target="CA_SHIER_COST_SRV.CDS_SHCQRY/Hostingpartnerid">
-				<Annotation Term="Common.ValueList">
+			<Annotations Target="CA_SHIER_COST_SRV.CDS_SHCQRY/Hostingpartner">
+				<Annotation Term="Common.ValueList" Qualifier="forVisualFilter">
 					<Record Type="Common.ValueListType">
 						<PropertyValue Property="CollectionPath" String="CDS_SHCQRYSet"/>
 						<PropertyValue Property="PresentationVariantQualifier" String="CostByHostingpartner"/>
@@ -368,6 +371,7 @@
 				</Annotation>
 			</Annotations>
 			<Annotations Target="CA_SHIER_COST_SRV.CDS_SHCQRY/Costperiod">
+				<Annotation Term="Common.IsCalendarYearMonth" Bool="true"/>
 				<Annotation Term="Common.ValueList" Qualifier="forVisualFilter">
 					<Record Type="Common.ValueListType">
 						<PropertyValue Property="CollectionPath" String="CDS_SHCQRYSet"/>

@@ -1,5 +1,5 @@
 {
-  "welcomeFile": "/webapp/test/flpSandbox.html",
+  "welcomeFile": "/webapp/index.html",
   "routes": [
     {
       "path": "/sap/opu/odata",
@@ -9,6 +9,15 @@
         "entryPath": "/sap/opu/odata"
       },
       "description": "SMD, client 100"
+    },
+    {
+      "path": "/sap/bc/ui5_ui5/",
+      "target": {
+        "type": "destination",
+        "name": "smdev100",
+        "entryPath": "/sap/bc/ui5_ui5"
+      },
+      "description": "smdev100"
     },
     {
       "path": "/sap/bc/lrep",

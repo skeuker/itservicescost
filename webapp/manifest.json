@@ -129,24 +129,18 @@
 					"name": "sap.suite.ui.generic.template.AnalyticalListPage",
 					"list": true,
 					"settings": {
-						"tableType": "AnalyticalTable",
 						"multiSelect": false,
 						"qualifier": "Default",
 						"autoHide": true,
 						"defaultFilterMode": "visual",
 						"defaultContentView": "chart",
 						"showGoButtonOnFilterBar": true,
-						"condensedTableLayout": true,
+						"condensedTableLayout": false,
 						"keyPerformanceIndicators": {}
 					}
 				},
-				"pages": {
-					"ObjectPage|CDS_SHCQRYSet": {
-						"entitySet": "CDS_SHCQRYSet",
-						"component": {
-							"name": "sap.suite.ui.generic.template.ObjectPage"
-						}
-					}
+				"pages": { 
+
 				}
 			}
 		}
