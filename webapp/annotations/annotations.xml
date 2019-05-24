@@ -77,26 +77,26 @@
 						<PropertyPath>Hostingpartner</PropertyPath>
 						<PropertyPath>Solutionarea</PropertyPath>
 						<PropertyPath>Solutionareaarchitect</PropertyPath>
-						<PropertyPath >Externalresourceid</PropertyPath>
+						<PropertyPath>Externalresourceid</PropertyPath>
 					</Collection>
 				</Annotation>
 				<Annotation Term="UI.Chart" Qualifier="ChartDefault">
 					<Record Type="UI.ChartDefinitionType">
-						<PropertyValue Property="ChartType" EnumMember="UI.ChartType/Column"/>
+						<PropertyValue Property="ChartType" EnumMember="UI.ChartType/Line"/>
 						<PropertyValue Property="Dimensions">
 							<Collection>
-								<PropertyPath>Solutionarea</PropertyPath>
-								<PropertyPath>Costitemtype</PropertyPath>
+								<PropertyPath>Costperiod</PropertyPath>
+								<PropertyPath>Solutionareaarchitect</PropertyPath>
 							</Collection>
 						</PropertyValue>
 						<PropertyValue Property="DimensionAttributes">
 							<Collection>
 								<Record Type="UI.ChartDimensionAttributeType">
-									<PropertyValue Property="Dimension" PropertyPath="Solutionarea"/>
-									<PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+									<PropertyValue Property="Dimension" PropertyPath="Solutionareaarchitect"/>
+									<PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Series"/>
 								</Record>
 								<Record Type="UI.ChartDimensionAttributeType">
-									<PropertyValue Property="Dimension" PropertyPath="Costitemtype"/>
+									<PropertyValue Property="Dimension" PropertyPath="Costperiod"/>
 									<PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
 								</Record>
 							</Collection>
@@ -274,6 +274,27 @@
 				<Annotation Term="UI.SelectionVariant" Qualifier="Default">
 					<Record>
 						<PropertyValue Property="Text" String="Default"/>
+						<PropertyValue Property="SelectOptions">
+							<Collection>
+								<Record Type="UI.SelectOptionType">
+									<PropertyValue Property="PropertyName" PropertyPath="Costperiod"/>
+									<PropertyValue Property="Ranges">
+										<Collection>
+											<Record Type="UI.SelectionRangeType">
+												<PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/>
+												<PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/CP"/>
+												<PropertyValue Property="Low" String="2019"/>
+											</Record>
+											<Record Type="UI.SelectionRangeType">
+												<PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/>
+												<PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/CP"/>
+												<PropertyValue Property="Low" String="2018"/>
+											</Record>
+										</Collection>
+									</PropertyValue>
+								</Record>
+							</Collection>
+						</PropertyValue>
 					</Record>
 				</Annotation>
 				<Annotation Term="UI.PresentationVariant" Qualifier="Default">
