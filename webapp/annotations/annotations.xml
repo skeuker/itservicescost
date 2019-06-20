@@ -26,6 +26,12 @@
 	<edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml">
 		<edmx:Include Alias="Validation" Namespace="Org.OData.Validation.V1"/>
 	</edmx:Reference>
+	<edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/462030211/Analytics.xml">
+		<edmx:Include Alias="Analytics" Namespace="com.sap.vocabularies.Analytics.v1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/496435637/PersonalData.xml">
+		<edmx:Include Alias="PersonalData" Namespace="com.sap.vocabularies.PersonalData.v1"/>
+	</edmx:Reference>
 	<edmx:DataServices>
 		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm">
 			<Annotations Target="CA_SHIER_COST_SRV.CDS_SHCQRY">
@@ -58,6 +64,9 @@
 							<PropertyValue Property="Value" Path="Solutionarea"/>
 						</Record>
 						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Landscapetier"/>
+						</Record>
+						<Record Type="UI.DataField">
 							<PropertyValue Property="Value" Path="Externalresourceid"/>
 						</Record>
 						<Record Type="UI.DataField">
@@ -75,7 +84,7 @@
 					<Collection>
 						<PropertyPath>Costperiod</PropertyPath>
 						<PropertyPath>Hostingpartner</PropertyPath>
-						<PropertyPath>Solutionarea</PropertyPath>
+						<PropertyPath>Landscapetier</PropertyPath>
 						<PropertyPath>Solutionareaarchitect</PropertyPath>
 						<PropertyPath>Externalresourceid</PropertyPath>
 					</Collection>
@@ -159,6 +168,37 @@
 							<Collection>
 								<Record Type="UI.ChartDimensionAttributeType">
 									<PropertyValue Property="Dimension" PropertyPath="Solutionarea"/>
+									<PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Measures">
+							<Collection>
+								<PropertyPath>Analysiscostamount</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="MeasureAttributes">
+							<Collection>
+								<Record Type="UI.ChartMeasureAttributeType">
+									<PropertyValue Property="Measure" PropertyPath="Analysiscostamount"/>
+									<PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.Chart" Qualifier="ChartCostByLandscapetier">
+					<Record Type="UI.ChartDefinitionType">
+						<PropertyValue Property="ChartType" EnumMember="UI.ChartType/Donut"/>
+						<PropertyValue Property="Dimensions">
+							<Collection>
+								<PropertyPath>Landscapetier</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="DimensionAttributes">
+							<Collection>
+								<Record Type="UI.ChartDimensionAttributeType">
+									<PropertyValue Property="Dimension" PropertyPath="Landscapetier"/>
 									<PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
 								</Record>
 							</Collection>
@@ -282,13 +322,8 @@
 										<Collection>
 											<Record Type="UI.SelectionRangeType">
 												<PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/>
-												<PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/CP"/>
-												<PropertyValue Property="Low" String="2019"/>
-											</Record>
-											<Record Type="UI.SelectionRangeType">
-												<PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/>
-												<PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/CP"/>
-												<PropertyValue Property="Low" String="2018"/>
+												<PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/EQ"/>
+												<PropertyValue Property="Low" String="201905"/>
 											</Record>
 										</Collection>
 									</PropertyValue>
@@ -353,6 +388,16 @@
 						<PropertyValue Property="Visualizations">
 							<Collection>
 								<AnnotationPath>@UI.Chart#ChartCostBySolutionarchitect</AnnotationPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.PresentationVariant" Qualifier="CostByLandscapetier">
+					<Record>
+						<PropertyValue Property="Text" String="Default"/>
+						<PropertyValue Property="Visualizations">
+							<Collection>
+								<AnnotationPath>@UI.Chart#ChartCostByLandscapetier</AnnotationPath>
 							</Collection>
 						</PropertyValue>
 					</Record>
@@ -466,6 +511,27 @@
 							<Collection>
 								<Record Type="Common.ValueListParameterOut">
 									<PropertyValue Property="LocalDataProperty" PropertyPath="Solutionareaarchitect"/>
+									<PropertyValue Property="ValueListProperty" String="Text"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="CA_SHIER_COST_SRV.CDS_SHCQRY/Landscapetier">
+				<Annotation Term="Common.ValueList" Qualifier="forVisualFilter">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="CollectionPath" String="CDS_SHCQRYSet"/>
+						<PropertyValue Property="PresentationVariantQualifier" String="CostByLandscapetier"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="CollectionPath" String="LandscapetierValueList"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="Landscapetier"/>
 									<PropertyValue Property="ValueListProperty" String="Text"/>
 								</Record>
 							</Collection>
