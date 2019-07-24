@@ -1,0 +1,35 @@
+{
+    "application": {
+        "id": "",
+        "title": "pnp.itservicescost.itservicescost",
+        "description": "IT Service Cost analytics",
+        "type": "SAP_UI5_Component",
+        "componentUrl": "/",
+        "appUrl": "#itservicescost-Display",
+        "navigationComponentName": "pnp.itservicescost",
+        "intentSemanticObject": "itservicescost",
+        "intentAction": "Display",
+        "html5ApplicationName": "itservicescost",
+        "HCPParentApplicationName": ""
+    },
+    "assignment": {
+        "groups": [
+            "cf89e71c-81a9-4f6c-aa8f-4593d824e87d"
+        ],
+        "contentPackages": [
+            "d6e2c367-315a-415a-a0aa-33077fa5fd71"
+        ],
+        "categories": []
+    },
+    "tile": {
+        "type": "StaticTile",
+        "title": "IT Services Cost",
+        "subtitle": "Analytical Query",
+        "searchKeywords": "IT Services Cost,Analytical Query",
+        "displayIconUrl": "sap-icon://money-bills",
+        "displayInfoText": "",
+        "size": "1x1",
+        "serviceURL": "",
+        "refreshInterval": ""
+    }
+}
