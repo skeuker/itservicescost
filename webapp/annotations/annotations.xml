@@ -602,6 +602,21 @@
 					</Record>
 				</Annotation>
 			</Annotations>
+			<Annotations Target="CA_SHIER_COST_SRV.CDS_SHCQRY/Cloudmigrationphase">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="CollectionPath" String="MigrationPhaseValueList"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="Cloudmigrationphase"/>
+									<PropertyValue Property="ValueListProperty" String="Text"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
 		</Schema>
 	</edmx:DataServices>
 </edmx:Edmx>
